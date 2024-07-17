@@ -28,4 +28,35 @@ public class User {
     public StringBuilder getPassword() {
         return password;
     }
+
+    public static class Builder {
+        private Long id;
+        private String login;
+        private int age;
+        private StringBuilder password;
+
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setLogin(String login) {
+            this.login = login;
+            return this;
+        }
+
+        public Builder setAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public Builder setPassword(StringBuilder password) {
+            this.password = password;
+            return this;
+        }
+
+        public User build() {
+            return new User(id, login, age, password);
+        }
+    }
 }
