@@ -1,6 +1,7 @@
 package uzb.aminasaidakhmedova.patternbuilder.model.entity;
 
 public class User {
+    private static Long newId = 100L;
     private final Long id;
     private final String login;
     private final int age;
@@ -61,13 +62,9 @@ public class User {
 
         public User build() {
             if(id == null) {
-                id = generateUniqueId();
+                id = newId++;
             }
             return new User(id, login, age, password);
-        }
-
-        private Long generateUniqueId() {
-            return System.currentTimeMillis();
         }
     }
 }
