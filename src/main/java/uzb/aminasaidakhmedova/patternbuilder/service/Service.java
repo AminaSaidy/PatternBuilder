@@ -1,7 +1,8 @@
 package uzb.aminasaidakhmedova.patternbuilder.service;
-import java.util.Comparator;
+
 import uzb.aminasaidakhmedova.patternbuilder.model.entity.User;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -19,13 +20,12 @@ public class Service {
         return strBuild.toString();
     }
 
-    public Stream<User> initializeUsers(int amount) {
-        return Stream.generate(() -> new User.Builder()
-                        .setLogin(generateRandomString(new Random().nextInt(15) + 5))
-                        .setAge(new Random().nextInt(80))
-                        .setPassword(new StringBuilder(generateRandomString(new Random().nextInt(15) + 5)))
-                        .build())
-                .limit(amount);
+    public Stream<User> initializeUsers(Stream<User> users) {
+        return users.map(user -> new User.Builder()
+                .setLogin(generateRandomString(new Random().nextInt(15) + 5))
+                .setAge(new Random().nextInt(80))
+                .setPassword(new StringBuilder(generateRandomString(new Random().nextInt(15) + 5)))
+                .build());
     }
 
     public static List<User> sortByAgeDescending(Stream<User> users) {
