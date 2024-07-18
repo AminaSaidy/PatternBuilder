@@ -5,6 +5,7 @@ import uzb.aminasaidakhmedova.patternbuilder.model.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class _Main {
@@ -19,8 +20,8 @@ public class _Main {
         List<User> sortedByAgeUsers = controller.sortByAgeDescending(streamUser);
         controller.printSortedByAge(sortedByAgeUsers);
         Stream<User> filteredByIdUsers = controller.filterOnlyEvenId(sortedByAgeUsers.stream());
-        controller.printFilteredEvenId(filteredByIdUsers);
-        boolean checkAgeMatchIdUser = controller.hasAgeMatchIdUser(filteredByIdUsers);
+        List<User> filteredList = filteredByIdUsers.collect(Collectors.toList());
+        boolean checkAgeMatchIdUser = controller.hasAgeMatchIdUser(filteredList);
         controller.printAgeMatchId(checkAgeMatchIdUser);
     }
 }

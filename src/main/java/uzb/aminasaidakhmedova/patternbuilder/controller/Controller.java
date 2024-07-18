@@ -18,15 +18,17 @@ public class Controller {
     }
 
     public List<User> sortByAgeDescending(Stream<User> streamUsers) {
-        return service.sortByAgeDescending(streamUsers.collect(Collectors.toList()).stream());
+        List<User> usersList = streamUsers.collect(Collectors.toList());
+        return service.sortByAgeDescending(usersList.stream());
     }
 
     public Stream<User> filterOnlyEvenId(Stream<User> streamUsers) {
-        return service.filterOnlyEvenId(streamUsers.collect(Collectors.toList()).stream());
+        List<User> usersList = streamUsers.collect(Collectors.toList());
+        return service.filterOnlyEvenId(usersList.stream());
     }
 
-    public boolean hasAgeMatchIdUser(Stream<User> streamUsers) {
-        return service.hasAgeMatchIdUser(streamUsers.collect(Collectors.toList()).stream());
+    public boolean hasAgeMatchIdUser(List<User> usersList) {
+        return service.hasAgeMatchIdUser(usersList);
     }
 
     public void printSortedByAge(List<User> sortedUsers) {

@@ -1,7 +1,7 @@
 package uzb.aminasaidakhmedova.patternbuilder.model.entity;
 
 public class User {
-    private static Long newId = 100L;
+    private static Long newId = 50L;
     private final Long id;
     private final String login;
     private final int age;

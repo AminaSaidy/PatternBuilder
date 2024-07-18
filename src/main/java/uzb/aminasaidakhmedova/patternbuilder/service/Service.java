@@ -37,9 +37,7 @@ public class Service {
         return users.filter(user -> user.getId() % 2 == 0);
     }
 
-    public boolean hasAgeMatchIdUser(Stream<User> users) {
-        Optional<User> user = users.filter(i -> i.getId().equals(i.getAge()))
-                .findAny();
-        return user.isPresent();
+    public boolean hasAgeMatchIdUser(List<User> users) {
+       return users.stream().anyMatch(user -> user.getId().equals(user.getAge()));
     }
 }
