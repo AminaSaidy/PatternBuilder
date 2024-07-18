@@ -3,6 +3,7 @@ import java.util.Comparator;
 import uzb.aminasaidakhmedova.patternbuilder.model.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -32,11 +33,13 @@ public class Service {
                 .collect(Collectors.toList());
     }
 
-    public static void filterOnlyEvenId() {
-
+    public static Stream<User> filterOnlyEvenId(Stream<User> users) {
+        return users.filter(user -> user.getId() % 2 == 0);
     }
 
-    public static void hasAgeMatchIdUser() {
-
+    public boolean hasAgeMatchIdUser(Stream<User> users) {
+        Optional<User> user = users.filter(i -> i.getId().equals(i.getAge()))
+                .findAny();
+        return user.isPresent();
     }
 }
