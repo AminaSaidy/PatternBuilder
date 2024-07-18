@@ -10,7 +10,19 @@ public class Controller {
     private final Service service = new Service();
 
     public Stream<User> makeUserStream(List<User> users) {
-        Stream<User> streamUsers= users.stream();
+        Stream<User> streamUsers = users.stream();
         return service.initializeUsers(streamUsers);
+    }
+
+    public List<User> sortByAgeDescending(Stream<User> streamUsers) {
+        return service.sortByAgeDescending(streamUsers);
+    }
+
+    public Stream<User> filterOnlyEvenId(Stream<User> streamUsers) {
+        return service.filterOnlyEvenId(streamUsers);
+    }
+
+    public boolean hasAgeMatchIdUser(Stream<User> streamUsers) {
+        return service.hasAgeMatchIdUser(streamUsers);
     }
 }
