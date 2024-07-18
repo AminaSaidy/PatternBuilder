@@ -36,7 +36,7 @@ public class User {
         private int age;
         private StringBuilder password;
 
-        public Builder(){
+        public Builder() {
 
         }
 
@@ -61,10 +61,15 @@ public class User {
         }
 
         public User build() {
-            if(id == null) {
+            if (id == null) {
                 id = newId++;
             }
             return new User(id, login, age, password);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "User{id: " + id + ", login: " + login + ", age: " + age + ", password: " + password + "}";
     }
 }

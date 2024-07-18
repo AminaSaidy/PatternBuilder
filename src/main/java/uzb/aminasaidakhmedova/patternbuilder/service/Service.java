@@ -28,7 +28,7 @@ public class Service {
                 .build());
     }
 
-    public static List<User> sortByAgeDescending(Stream<User> users) {
+    public List<User> sortByAgeDescending(Stream<User> users) {
         return users.sorted(Comparator.comparingInt(User::getAge))
                 .collect(Collectors.toList());
     }

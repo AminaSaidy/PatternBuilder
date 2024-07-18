@@ -5,6 +5,7 @@ import uzb.aminasaidakhmedova.patternbuilder.service.Service;
 import uzb.aminasaidakhmedova.patternbuilder.view.View;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Controller {
@@ -17,15 +18,15 @@ public class Controller {
     }
 
     public List<User> sortByAgeDescending(Stream<User> streamUsers) {
-        return service.sortByAgeDescending(streamUsers);
+        return service.sortByAgeDescending(streamUsers.collect(Collectors.toList()).stream());
     }
 
     public Stream<User> filterOnlyEvenId(Stream<User> streamUsers) {
-        return service.filterOnlyEvenId(streamUsers);
+        return service.filterOnlyEvenId(streamUsers.collect(Collectors.toList()).stream());
     }
 
     public boolean hasAgeMatchIdUser(Stream<User> streamUsers) {
-        return service.hasAgeMatchIdUser(streamUsers);
+        return service.hasAgeMatchIdUser(streamUsers.collect(Collectors.toList()).stream());
     }
 
     public void printSortedByAge(List<User> sortedUsers) {
