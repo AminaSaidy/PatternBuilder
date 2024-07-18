@@ -2,12 +2,14 @@ package uzb.aminasaidakhmedova.patternbuilder.controller;
 
 import uzb.aminasaidakhmedova.patternbuilder.model.entity.User;
 import uzb.aminasaidakhmedova.patternbuilder.service.Service;
+import uzb.aminasaidakhmedova.patternbuilder.view.View;
 
 import java.util.List;
 import java.util.stream.Stream;
 
 public class Controller {
     private final Service service = new Service();
+    private final View view = new View();
 
     public Stream<User> makeUserStream(List<User> users) {
         Stream<User> streamUsers = users.stream();
@@ -24,5 +26,17 @@ public class Controller {
 
     public boolean hasAgeMatchIdUser(Stream<User> streamUsers) {
         return service.hasAgeMatchIdUser(streamUsers);
+    }
+
+    public void printSortedByAge(List<User> sortedUsers) {
+        view.printSortedByAge(sortedUsers);
+    }
+
+    public void printFilteredEvenId(Stream<User> filteredUsers) {
+        view.printFilteredEvenId(filteredUsers);
+    }
+
+    public void printAgeMatchId(boolean result) {
+        view.printAgeMatchId(result);
     }
 }
