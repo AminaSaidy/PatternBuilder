@@ -35,6 +35,10 @@ public class User {
         private int age;
         private StringBuilder password;
 
+        public Builder(){
+
+        }
+
         public Builder setId(Long id) {
             this.id = id;
             return this;
@@ -56,7 +60,14 @@ public class User {
         }
 
         public User build() {
+            if(id == null) {
+                id = generateUniqueId();
+            }
             return new User(id, login, age, password);
+        }
+
+        private Long generateUniqueId() {
+            return System.currentTimeMillis();
         }
     }
 }
