@@ -10,7 +10,7 @@ public class View {
         sortedUsers.forEach(System.out::println);
     }
 
-    public void printFilteredEvenId(Stream<User> filteredUsers) {
+    public void printFilteredEvenId(List<User> filteredUsers) {
         filteredUsers.forEach(System.out::println);
     }
 

@@ -35,7 +35,7 @@ public class Controller {
         view.printSortedByAge(sortedUsers);
     }
 
-    public void printFilteredEvenId(Stream<User> filteredUsers) {
+    public void printFilteredEvenId(List<User> filteredUsers) {
         view.printFilteredEvenId(filteredUsers);
     }
 

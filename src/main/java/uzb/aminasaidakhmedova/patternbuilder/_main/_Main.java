@@ -19,8 +19,11 @@ public class _Main {
         Stream<User> streamUser = controller.makeUserStream(userBuild);
         List<User> sortedByAgeUsers = controller.sortByAgeDescending(streamUser);
         controller.printSortedByAge(sortedByAgeUsers);
+        System.out.println("--------------------------------------------------");
         Stream<User> filteredByIdUsers = controller.filterOnlyEvenId(sortedByAgeUsers.stream());
         List<User> filteredList = filteredByIdUsers.collect(Collectors.toList());
+        controller.printFilteredEvenId(filteredList);
+        System.out.println("--------------------------------------------------");
         boolean checkAgeMatchIdUser = controller.hasAgeMatchIdUser(filteredList);
         controller.printAgeMatchId(checkAgeMatchIdUser);
     }
